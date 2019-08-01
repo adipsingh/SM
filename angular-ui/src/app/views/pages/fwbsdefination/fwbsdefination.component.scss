@@ -1,0 +1,35 @@
+:host {
+	::ng-deep {
+		ngb-tabset > .nav-tabs {
+			display: none;
+		}
+	}
+	.list-group-img,
+	.list-group-wrapper {
+		display: inline-block;
+	}
+}
+
+.list-group-img img{
+    border-radius: .25rem;
+}
+
+label{
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(87, 87, 87);
+    color: rgb(36, 36, 36);
+    display: table;
+    border-radius: .25rem;
+    border: 1px solid rgb(231, 231, 231);
+     }
+  
+     label:hover{
+        background-color: rgb(231, 231, 231);
+     }     
+
+
+
+input[type="file"] {
+    display: none;
+}

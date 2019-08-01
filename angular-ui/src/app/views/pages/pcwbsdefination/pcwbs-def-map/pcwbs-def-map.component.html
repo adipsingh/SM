@@ -1,0 +1,270 @@
+
+<div class="kt-portlet">    
+  <div class="kt-portlet__head kt-portlet__head__custom">
+      <div class="kt-portlet__head-label">
+          <h3 class="kt-portlet__head-title">PCWBS Defination</h3>
+      </div>
+      <div class="kt-portlet__head-label">
+              <button mat-raised-button color="primary">Back</button>
+      </div>
+  </div>
+  <form class="kt-form">
+      <div class="kt-portlet__body">
+          <div class="kt-portlet__body-progress">            
+              <mat-spinner></mat-spinner>
+          </div>
+         <!-- <kt-alert *ngIf="hasFormErrors" type="warn"  (close)="onAlertClose($event)">        
+              Oh snap! Change a few things up and try submitting again.        
+          </kt-alert>-->        
+          <div class="form-group kt-form__group row"> 
+              <!-- <div class="col-lg-6 kt-margin-bottom-0-mobile">
+                      
+                          <button  mat-raised-button color="primary" >Download PCWBS Code from DataHub</button>            
+                                      
+              </div>        
+              <div class="col-lg-6 kt-margin-bottom-0-mobile" >        
+                     
+                      <label style="font-weight: bold">PCWBS MAP :</label> &nbsp;
+                      <button mat-raised-button color="primary" type="submit" style="margin-left: 2px;">Choose File</button>        
+                      &nbsp;&nbsp;<mat-error>        
+                          <strong>No File Chosen</strong>        
+                      </mat-error>&nbsp;&nbsp;                                     
+                      <button mat-raised-button color="primary" type="submit" >PCWBS Upload</button>        
+                
+              </div>     -->
+
+             
+                <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                    <button mat-raised-button>Download PCWBS Code from DataHub</button>
+                </div>
+
+                <div class="col-lg-8 kt-margin-bottom-20-mobile">
+                <div class="upload">
+                    <label for="upload">PCWBS Map</label>
+                    <input type='file' mat-input color="primary">
+                    <button mat-raised-button>PCWBS Upload</button>
+                </div>   
+                </div>
+
+                <div class="col-lg-4 kt-margin-bottom-20-mobile boundary">
+                    <button mat-raised-button>Define PCWBS Boundary</button>
+                </div>
+             
+              <!--<div class="col-lg-4 kt-margin-bottom-20-mobile">        
+                  <mat-form-field class="mat-form-field-fluid">        
+                      <input matInput placeholder="Enter Login" formControlName="userName" />        
+                      <mat-error>Login is        
+                          <strong>required</strong>        
+                      </mat-error>        
+                      <mat-hint align="start">Please enter        
+                          <strong>Login</strong>        
+                      </mat-hint>        
+                  </mat-form-field>        
+              </div>        -->
+          </div>        
+      </div> 
+  </form>
+</div>
+<div class="kt-portlet">
+      <div class="kt-portlet__head kt-portlet__head__custom">
+              <div class="kt-portlet__head-label">
+                  <h3 class="kt-portlet__head-title">Define PCWBS Boundary </h3>
+              </div>
+              <!-- <div class="kt-portlet__head-label">
+                      <h3 class="kt-portlet__head-title">Commissioning and SIMOPS Area</h3>
+              </div> -->
+      </div>
+      <form class="kt-form">
+              <div class="kt-portlet__body">
+                      <div class="form-group kt-form__group row">        
+                              <div class="col-lg-8 kt-margin-bottom-0-mobile"> 
+                                  
+                                 
+                                      <img  src="../../../../assets/media/demos/PCWBS.png" height="400px" width="100%" style="position: relative;" />
+                                          
+                                 
+                              
+                              </div> 
+                              <div class="col-lg-4 kt-margin-bottom-0-mobile">        
+                                     
+                                          <!-- <div class="form-group kt-form__group row" style="padding-left: 15px; background: dodgerblue;">                                                  
+                                              <h5 style="color:aliceblue">Tick Commissioning and SIMOPS area</h5>
+                                          </div > -->
+
+                                        <div class="kt-portlet__head kt-portlet__head__custom">             
+                                            <div class="kt-portlet__head-label">
+                                                <h3 class="kt-portlet__head-title">Commissioning and SIMOPS</h3>
+                                            </div>  
+                                            
+                                        </div>   
+                                        <label>Tick Commissioning and SIMOPS area</label>
+                                          <div class="form-group kt-form__group row" style="padding-top: 30px;">
+                                              <div class="col-lg-12" >
+                                                  <mat-checkbox style="padding-left: 18px;" labelPosition='Before'>A110</mat-checkbox>
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>B110</mat-checkbox>
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>C110</mat-checkbox>
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>D110</mat-checkbox>
+                                              </div>
+                                          </div>                                                
+                                          <div class="form-group kt-form__group row" > 
+                                              <div class="col-lg-12" >                                                    
+                                                  <mat-checkbox style="padding-left: 18px;" labelPosition='Before'>A120</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>B120</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>C120</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>D120</mat-checkbox>
+                                              </div>
+                                          </div>
+
+                                          <div class="form-group kt-form__group row" > 
+                                              <div class="col-lg-12" >                                                    
+                                                  <mat-checkbox style="padding-left: 18px;" labelPosition='Before'>A210</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>B210</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>C210</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>D210</mat-checkbox>
+                                              </div>
+                                          </div>
+                                          <div class="form-group kt-form__group row" > 
+                                              <div class="col-lg-12" >                                                    
+                                                  <mat-checkbox style="padding-left: 18px;" labelPosition='Before'>A220</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>B220</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>C220</mat-checkbox>                                                   
+                                                  <mat-checkbox style="padding-left: 25px;" labelPosition='Before'>D220</mat-checkbox>
+                                              </div>
+                                          </div>
+                                     
+                                      <!-- <hr> 
+                                     
+                                              <div class="form-group kt-form__group row" style="padding-left: 18px;background: dodgerblue; margin-top: 35px;">
+                                                      <h5 style="color:aliceblue">No PCWBS Area</h5>
+                                              </div>
+                                              <div class="form-group kt-form__group row" style="padding-top: 20px;" >
+                                                      <div class="input-group-prepend" style="padding-left: 18px;">
+                                                              <input class="form-control" placeholder="Type Name Of area Outside PCWBS" style="width: 270px;" >
+                                                      </div>
+                                                      <button mat-raised-button color="primary" type="submit" >Add</button>
+                                              </div>
+                                                 
+                                     
+                                      <hr>  -->
+                      <div class="kt-portlet__head kt-portlet__head__custom">             
+                          <div class="kt-portlet__head-label">
+                              <h3 class="kt-portlet__head-title">No PCWBS Area</h3>
+                          </div>  
+                      </div>   
+                      
+                      <div class="form-group kt-form__group row">
+                        <div class="col-lg-8 kt-margin-bottom-20-mobile">
+                          <mat-form-field class="mat-form-field-fluid">
+                            <div [formGroup]="myGroup">
+                                <input matInput placeholder="Enter Area" formControlName="Area" />
+                              </div>
+                            <mat-error>Area Name is
+                              <strong>required</strong>
+                            </mat-error>
+                            <mat-hint align="start">Please Add
+                              <strong>Area</strong>
+                            </mat-hint>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-lg-4 kt-margin-bottom-20-mobile">
+                          <!-- <button mat-button color="primary">Add Area</button> -->
+                          <button type="button" mat-raised-button color="primary" (click)="onSubmit()" [disabled]="viewLoading"
+                          matTooltip="Save changes">
+                          Save
+                        </button>
+                        </div>
+                      </div>
+
+                      <div class="kt-portlet__head kt-portlet__head__custom">     
+                          <div class="kt-portlet__head-label">
+                              <h3 class="kt-portlet__head-title">Available Area Name</h3>
+                          </div>
+                       </div>      
+
+                       <div class="form-group kt-form__group row">
+                        <div class="col-lg-12 kt-margin-bottom-20-mobile">
+                              <div class="mat-table__wrapper">
+                                <mat-table class="lmat-elevation-z8"
+                                  #table
+                                  [dataSource]="dataSource"  
+                                  >  
+                          
+                                  <ng-container matColumnDef="id">
+                                    <mat-header-cell *matHeaderCellDef >ID</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                                  </ng-container>
+                          
+                                  <ng-container matColumnDef="area">
+                                    <mat-header-cell *matHeaderCellDef>Area Name</mat-header-cell>
+                                    <mat-cell *matCellDef="let element">{{element.area}}</mat-cell>
+                                  </ng-container> 
+                          
+                                  <ng-container matColumnDef="actions">
+                                    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                                    <mat-cell *matCellDef="let area">
+                                      <ng-template ngxPermissionsOnly="canEditECommerceData">
+                                        <button mat-icon-button color="primary" matTooltip="Edit area" (click)="editCategory(area)">
+                                          <mat-icon>create</mat-icon>
+                                        </button>&nbsp;
+                                      </ng-template>
+                          
+                                      <ng-template ngxPermissionsOnly="canDeleteECommerceData">
+                                        <button mat-icon-button
+                                          color="warn"
+                                          matTooltip="Delete category"
+                                          type="button"
+                                          (click)="deleteCategory(category)">
+                                          <mat-icon>delete</mat-icon>
+                                        </button>&nbsp;
+                                      </ng-template>
+                            
+                                    </mat-cell>
+                                  </ng-container>
+                          
+                                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                          
+                                  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+                                </mat-table>
+                                  
+                              </div> 
+
+                              </div>
+                       </div>
+                          
+                     
+                                                                        
+                                          
+                                                 <!-- <div class="form-group kt-form__group row" style="padding-left: 18px;background: dodgerblue; " >
+                                                          <h5 style="color:aliceblue">Available Area Name</h5>                                                            
+                                                  </div>
+                                                  <div class="form-group kt-form__group row" >
+                                                          <h5 >MCSC</h5><span class=""></span>
+                                                  </div>
+                                                  <div class="form-group kt-form__group row" >
+                                                          <h5 >Parking Area</h5>
+                                                  </div>
+                                                  <div class="form-group kt-form__group row" >
+                                                          <h5 >Camp A</h5>
+                                                  </div>
+                                                  <div class="form-group kt-form__group row" >
+                                                          <h5 >Camp B</h5> 
+                                                  </div>-->
+                                                  
+                            <!-- <div class="form-group kt-form__group row" style="padding-left: 18px;background: dodgerblue;margin-top: 35px; " >
+                            <h5 style="color:aliceblue">Available Area Name</h5> </div>
+                            
+                            <mat-selection-list #areas >
+                                    <mat-list-option style="font-weight: bold;color:grey;" *ngFor="let ar of area">
+                                            {{ar}}
+                                    </mat-list-option>
+
+                            </mat-selection-list> -->                        
+                                     
+                                  </div> 
+                              
+                      </div>
+              </div>
+              
+      </form>
+</div>
+      

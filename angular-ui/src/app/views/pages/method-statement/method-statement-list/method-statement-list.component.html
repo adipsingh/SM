@@ -1,0 +1,568 @@
+<kt-portlet>
+<kt-portlet-body>
+  <mat-tab-group [(selectedIndex)]="selectedTab">
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        1000
+      </ng-template>
+      <ng-template matTabContent>
+        <!--begin::Form-->
+     
+          <kt-portlet-header [class]="'kt-portlet__head--lg'" [viewLoading$]="dataSource.loading$">
+            <ng-container ktPortletTitle>
+              <h3 class="kt-portlet__head-title">
+                <span >Content list</span>  
+              </h3>
+            </ng-container>
+        
+            <ng-container ktPortletTools>
+              <button (click)="addMethod()" mat-raised-button matTooltip="Create new Content" color="primary" type="button">
+                <span >New Content</span> 
+              </button>
+            </ng-container>
+          </kt-portlet-header>
+        
+          <kt-portlet-body> 
+        
+            <div class="mat-table__wrapper">
+              <mat-table class="lmat-elevation-z8"
+                #table
+                [dataSource]="dataSource"  
+                >  
+        
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef >ID</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Drawing No.</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.media.name}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="revision">
+                  <mat-header-cell *matHeaderCellDef>Revision</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.revision}}</mat-cell>
+                </ng-container> 
+        
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let method">
+                    <ng-template ngxPermissionsOnly="canEditECommerceData">
+                      <button mat-icon-button color="primary" matTooltip="Edit method" (click)="editMethod(method)">
+                        <mat-icon>create</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+        
+                    <ng-template ngxPermissionsOnly="canDeleteECommerceData">
+                      <button mat-icon-button
+                        color="warn"
+                        matTooltip="Delete method"
+                        type="button"
+                        (click)="deleteMethod(method)">
+                        <mat-icon>delete</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+         
+                  </mat-cell>
+                </ng-container>
+        
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              </mat-table>
+               
+            </div> 
+        
+          </kt-portlet-body>
+        
+      
+        
+        <!--end::Form-->
+      </ng-template>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        2000
+      </ng-template>
+      <ng-template matTabContent>
+        <kt-portlet>
+          <kt-portlet-header [class]="'kt-portlet__head--lg'" [viewLoading$]="dataSource.loading$">
+            <ng-container ktPortletTitle>
+              <h3 class="kt-portlet__head-title">
+                <span >Content list</span>  
+              </h3>
+            </ng-container>
+        
+            <ng-container ktPortletTools>
+              <button (click)="addMethod()" mat-raised-button matTooltip="Create new Content" color="primary" type="button">
+                <span >New Content</span> 
+              </button>
+            </ng-container>
+          </kt-portlet-header>
+        
+          <kt-portlet-body> 
+        
+            <div class="mat-table__wrapper">
+              <mat-table class="lmat-elevation-z8"
+                #table
+                [dataSource]="dataSource"  
+                >  
+        
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef >ID</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Drawing No.</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.media.name}}</mat-cell>
+                </ng-container> 
+
+
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="revision">
+                  <mat-header-cell *matHeaderCellDef>Revision</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.revision}}</mat-cell>
+                </ng-container> 
+        
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let category">
+                    <ng-template ngxPermissionsOnly="canEditECommerceData">
+                      <button mat-icon-button color="primary" matTooltip="Edit category" (click)="editMethod(category)">
+                        <mat-icon>create</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+        
+                    <ng-template ngxPermissionsOnly="canDeleteECommerceData">
+                      <button mat-icon-button
+                        color="warn"
+                        matTooltip="Delete category"
+                        type="button"
+                        (click)="deleteMethod(category)">
+                        <mat-icon>delete</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+         
+                  </mat-cell>
+                </ng-container>
+        
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              </mat-table>
+               
+            </div> 
+        
+          </kt-portlet-body>
+        
+        </kt-portlet>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        3000
+      </ng-template>
+      <ng-template matTabContent>
+        <kt-portlet>
+          <kt-portlet-header [class]="'kt-portlet__head--lg'" [viewLoading$]="dataSource.loading$">
+            <ng-container ktPortletTitle>
+              <h3 class="kt-portlet__head-title">
+                <span >Content list</span>  
+              </h3>
+            </ng-container>
+        
+            <ng-container ktPortletTools>
+              <button (click)="addMethod()" mat-raised-button matTooltip="Create new Content" color="primary" type="button">
+                <span >New Content</span> 
+              </button>
+            </ng-container>
+          </kt-portlet-header>
+        
+          <kt-portlet-body> 
+        
+            <div class="mat-table__wrapper">
+              <mat-table class="lmat-elevation-z8"
+                #table
+                [dataSource]="dataSource"  
+                >  
+        
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef >ID</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef>Drawing No.</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.media.name}}</mat-cell>
+                </ng-container> 
+
+
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="revision">
+                  <mat-header-cell *matHeaderCellDef>Revision</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.revision}}</mat-cell>
+                </ng-container> 
+        
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let method">
+                    <ng-template ngxPermissionsOnly="canEditECommerceData">
+                      <button mat-icon-button color="primary" matTooltip="Edit method" (click)="editMethod(method)">
+                        <mat-icon>create</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+        
+                    <ng-template ngxPermissionsOnly="canDeleteECommerceData">
+                      <button mat-icon-button
+                        color="warn"
+                        matTooltip="Delete method"
+                        type="button"
+                        (click)="deleteMethod(method)">
+                        <mat-icon>delete</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+         
+                  </mat-cell>
+                </ng-container>
+<!-- 
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let method">
+                    <button (click)="editMethod(method)" mat-icon-button color="primary" matTooltip="Edit method">
+                      <mat-icon>create</mat-icon>
+                    </button>&nbsp;
+                    <button mat-icon-button color="warn" matTooltip="Delete method" type="button" (click)="deleteMethod(method)">
+                      <mat-icon>delete</mat-icon>
+                    </button>
+                  </mat-cell>
+                </ng-container>
+         -->
+        
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              </mat-table>
+               
+            </div> 
+        
+          </kt-portlet-body>
+        
+        </kt-portlet>
+      </ng-template>
+    </mat-tab>
+    <mat-tab>
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        4000
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <kt-portlet>
+          <kt-portlet-header [class]="'kt-portlet__head--lg'" [viewLoading$]="dataSource.loading$">
+            <ng-container ktPortletTitle>
+              <h3 class="kt-portlet__head-title">
+                <span >Content list</span>  
+              </h3>
+            </ng-container>
+        
+            <ng-container ktPortletTools>
+              <button (click)="addMethod()" mat-raised-button matTooltip="Create new Content" color="primary" type="button">
+                <span >New Content</span> 
+              </button>
+            </ng-container>
+          </kt-portlet-header>
+        
+          <kt-portlet-body> 
+        
+            <div class="mat-table__wrapper">
+              <mat-table class="lmat-elevation-z8"
+                #table
+                [dataSource]="dataSource"  
+                >  
+        
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef >ID</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="drawing">
+                  <mat-header-cell *matHeaderCellDef>Drawing No.</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.drawing}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="revision">
+                  <mat-header-cell *matHeaderCellDef>Revision</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.revision}}</mat-cell>
+                </ng-container> 
+        
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let category">
+                    <ng-template ngxPermissionsOnly="canEditECommerceData">
+                      <button mat-icon-button color="primary" matTooltip="Edit category" (click)="editMethod(category)">
+                        <mat-icon>create</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+        
+                    <ng-template ngxPermissionsOnly="canDeleteECommerceData">
+                      <button mat-icon-button
+                        color="warn"
+                        matTooltip="Delete category"
+                        type="button"
+                        (click)="deleteMethod(category)">
+                        <mat-icon>delete</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+         
+                  </mat-cell>
+                </ng-container>
+        
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              </mat-table>
+               
+            </div> 
+        
+          </kt-portlet-body>
+        
+        </kt-portlet> -->
+      </ng-template>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        5000
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <kt-portlet>
+          <kt-portlet-header [class]="'kt-portlet__head--lg'" [viewLoading$]="dataSource.loading$">
+            <ng-container ktPortletTitle>
+              <h3 class="kt-portlet__head-title">
+                <span >Content list</span>  
+              </h3>
+            </ng-container>
+        
+            <ng-container ktPortletTools>
+              <button (click)="addMethod()" mat-raised-button matTooltip="Create new Content" color="primary" type="button">
+                <span >New Content</span> 
+              </button>
+            </ng-container>
+          </kt-portlet-header>
+        
+          <kt-portlet-body> 
+        
+            <div class="mat-table__wrapper">
+              <mat-table class="lmat-elevation-z8"
+                #table
+                [dataSource]="dataSource"  
+                >  
+        
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef >ID</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="drawing">
+                  <mat-header-cell *matHeaderCellDef>Drawing No.</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.drawing}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="revision">
+                  <mat-header-cell *matHeaderCellDef>Revision</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.revision}}</mat-cell>
+                </ng-container> 
+        
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let category">
+                    <ng-template ngxPermissionsOnly="canEditECommerceData">
+                      <button mat-icon-button color="primary" matTooltip="Edit category" (click)="editMethod(category)">
+                        <mat-icon>create</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+        
+                    <ng-template ngxPermissionsOnly="canDeleteECommerceData">
+                      <button mat-icon-button
+                        color="warn"
+                        matTooltip="Delete category"
+                        type="button"
+                        (click)="deleteMethod(category)">
+                        <mat-icon>delete</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+         
+                  </mat-cell>
+                </ng-container>
+        
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              </mat-table>
+               
+            </div> 
+        
+          </kt-portlet-body>
+        
+        </kt-portlet> -->
+      </ng-template>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        6000
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <kt-portlet>
+          <kt-portlet-header [class]="'kt-portlet__head--lg'" [viewLoading$]="dataSource.loading$">
+            <ng-container ktPortletTitle>
+              <h3 class="kt-portlet__head-title">
+                <span >Content list</span>  
+              </h3>
+            </ng-container>
+        
+            <ng-container ktPortletTools>
+              <button (click)="addMethod()" mat-raised-button matTooltip="Create new Content" color="primary" type="button">
+                <span >New Content</span> 
+              </button>
+            </ng-container>
+          </kt-portlet-header>
+        
+          <kt-portlet-body> 
+        
+            <div class="mat-table__wrapper">
+              <mat-table class="lmat-elevation-z8"
+                #table
+                [dataSource]="dataSource"  
+                >  
+        
+                <ng-container matColumnDef="id">
+                  <mat-header-cell *matHeaderCellDef >ID</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+                </ng-container>
+        
+                <ng-container matColumnDef="drawing">
+                  <mat-header-cell *matHeaderCellDef>Drawing No.</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.drawing}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="description">
+                  <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.description}}</mat-cell>
+                </ng-container> 
+
+                <ng-container matColumnDef="revision">
+                  <mat-header-cell *matHeaderCellDef>Revision</mat-header-cell>
+                  <mat-cell *matCellDef="let element">{{element.revision}}</mat-cell>
+                </ng-container> 
+        
+                <ng-container matColumnDef="actions">
+                  <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+                  <mat-cell *matCellDef="let category">
+                    <ng-template ngxPermissionsOnly="canEditECommerceData">
+                      <button mat-icon-button color="primary" matTooltip="Edit category" (click)="editMethod(category)">
+                        <mat-icon>create</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+        
+                    <ng-template ngxPermissionsOnly="canDeleteECommerceData">
+                      <button mat-icon-button
+                        color="warn"
+                        matTooltip="Delete category"
+                        type="button"
+                        (click)="deleteMethod(category)">
+                        <mat-icon>delete</mat-icon>
+                      </button>&nbsp;
+                    </ng-template>
+         
+                  </mat-cell>
+                </ng-container>
+        
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        
+                <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+              </mat-table>
+               
+            </div> 
+        
+          </kt-portlet-body>
+        
+        </kt-portlet> -->
+      </ng-template>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        7000
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <kt-change-password [userId]="user.id"></kt-change-password> -->
+      </ng-template>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        8000
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <kt-change-password [userId]="user.id"></kt-change-password> -->
+      </ng-template>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        9000
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <kt-change-password [userId]="user.id"></kt-change-password> -->
+      </ng-template>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        A000
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <kt-change-password [userId]="user.id"></kt-change-password> -->
+      </ng-template>
+    </mat-tab>
+    <mat-tab >
+      <ng-template mat-tab-label>
+        <i class="mat-tab-label-icon fa fa-exchange-alt"></i>
+        B000
+      </ng-template>
+      <ng-template matTabContent>
+        <!-- <kt-change-password [userId]="user.id"></kt-change-password> -->
+      </ng-template>
+    </mat-tab>
+
+  </mat-tab-group>
+</kt-portlet-body>
+</kt-portlet>

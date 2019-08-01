@@ -1,0 +1,113 @@
+<kt-portlet>
+
+	<kt-portlet-header [title]="'PTW Pre Selection Questions list'" [viewLoading$]="dataSource.loading$"
+		[class]="'kt-portlet__head--lg'">
+		<ng-container ktPortletTools>
+			<button [routerLink]="['../edit']" mat-raised-button color="primary" style="margin: 20px;">New
+				Questions</button>
+			<button mat-raised-button color="primary">Add PTW Type</button>
+		</ng-container>
+	</kt-portlet-header>
+
+	<kt-portlet-body>
+		<!-- start::FILTERS & GROUP ACTIONS -->
+		<div class="kt-form kt-margin-b-30">
+			<!-- start::FILTERS -->
+			<div class="kt-form__filtration">
+				<div class="row align-items-center">
+					<div class="col-md-4 kt-margin-bottom-10-mobile">
+						<mat-form-field>
+							<input matInput placeholder="Search product" #searchInput placeholder="Search"
+								class="mat-form-field mat-form-field-fluid">
+							<mat-hint align="start">
+								<strong>Search in all fields</strong>
+							</mat-hint>
+						</mat-form-field>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="mat-table__wrapper">
+			<!-- Checkbox Column -->
+			<!-- Table with selection -->
+			<!-- https://run.stackblitz.com/api/angular/v1?file=app%2Ftable-selection-example.ts -->
+			<mat-table class="lmat-elevation-z8" #table [dataSource]="dataSource" matSort #sort1="matSort"
+				matSortActive="id" matSortDirection="asc" matSortDisableClear>
+				<!-- Checkbox Column -->
+				<ng-container matColumnDef="select">
+					<mat-header-cell *matHeaderCellDef class="mat-column-checkbox">
+						<mat-checkbox (change)="$event ? masterToggle() : null"
+							[checked]="selection.hasValue() && isAllSelected()"
+							[indeterminate]="selection.hasValue() && !isAllSelected()" [color]="'primary'">
+						</mat-checkbox>
+					</mat-header-cell>
+					<mat-cell *matCellDef="let row" class="mat-column-checkbox">
+						<mat-checkbox (click)="$event.stopPropagation()"
+							(change)="$event ? selection.toggle(row) : null" [checked]="selection.isSelected(row)"
+							[color]="'primary'">
+						</mat-checkbox>
+					</mat-cell>
+				</ng-container>
+
+				<ng-container matColumnDef="id">
+					<mat-header-cell *matHeaderCellDef mat-sort-header>S/N</mat-header-cell>
+					<mat-cell *matCellDef="let question">{{question.id}}</mat-cell>
+				</ng-container>
+
+				<ng-container matColumnDef="questions">
+					<mat-header-cell *matHeaderCellDef mat-sort-header>Questions</mat-header-cell>
+					<mat-cell *matCellDef="let question">{{question.questions}}</mat-cell>
+				</ng-container>
+
+				<ng-container matColumnDef="Cold">
+					<mat-header-cell *matHeaderCellDef mat-sort-header style="margin-left: 438px;">Cold
+					</mat-header-cell>
+					<mat-cell *matCellDef="let cold" class="mat-column-checkbox">
+						<mat-checkbox (click)="$event.stopPropagation()"
+							(change)="$event ? selection.toggle(cold) : null" [checked]="selection.isSelected(cold)"
+							[color]="'primary'">
+						</mat-checkbox>
+					</mat-cell>
+				</ng-container>
+
+				<ng-container matColumnDef="Hot">
+					<mat-header-cell *matHeaderCellDef mat-sort-header>Hot</mat-header-cell>
+					<mat-cell *matCellDef="let hot" class="mat-column-checkbox">
+						<mat-checkbox (click)="$event.stopPropagation()"
+							(change)="$event ? selection.toggle(hot) : null" [checked]="selection.isSelected(hot)"
+							[color]="'primary'">
+						</mat-checkbox>
+					</mat-cell>
+				</ng-container>
+				<ng-container matColumnDef="actions">
+					<mat-header-cell *matHeaderCellDef>
+						Actions
+					</mat-header-cell>
+					<mat-cell *matCellDef="let question">
+						<button type="button" (click)="editQuestion(question.id)" mat-icon-button color="primary"
+							matTooltip="Edit Question">
+							<mat-icon>create</mat-icon>
+						</button>&nbsp;
+						<button mat-icon-button color="warn" type="button" (click)="deleteQuestion(question)"
+							matTooltip="Delete Question">
+							<mat-icon>delete</mat-icon>
+						</button>&nbsp;
+						<button mat-icon-button [matMenuTriggerFor]="menu" matTooltip="More actions">
+							<mat-icon>more_vert</mat-icon>
+						</button>
+					</mat-cell>
+				</ng-container>
+
+				<mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+				<mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+			</mat-table>
+			<div class="mat-table__message" *ngIf="!dataSource.hasItems">No records found</div>
+			<!-- <div class="mat-table__message" *ngIf="dataSource.isPreloadTextViewed$ | async">Please wait....</div> -->
+		</div>
+		<div class="mat-table__bottom">
+			<mat-spinner [diameter]="20"></mat-spinner>
+			<mat-paginator [pageSize]="10" [pageSizeOptions]="[3, 5, 10]" [showFirstLastButtons]="true"></mat-paginator>
+		</div>
+	</kt-portlet-body>
+</kt-portlet>

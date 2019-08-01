@@ -1,0 +1,70 @@
+<kt-portlet>
+    <kt-portlet-header [sticky]="true" [title]="'FWBS Definition'" [class]="'kt-portlet__head--lg'">
+        <ng-container ktPortletTools>
+            <div class="kt-portlet__head-label">
+                <button mat-raised-button color="primary">Download FWBS from DataHub </button>
+                <button mat-raised-button color="defult" class="ml-3 mr-3">Download FWBS from DataHub </button>
+            </div>
+            <div class="kt-portlet__head-label">
+                <button mat-raised-button color="primary">Back</button>
+            </div>
+        </ng-container>
+    </kt-portlet-header>
+</kt-portlet>
+<kt-portlet>
+    <kt-portlet-body>
+        <!-- <form [formGroup]="formDoc"> -->
+        <div class="row">
+            <div class="col-sm-6 col-md-4 mb-4" *ngFor="let defination of definations">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <h6>{{defination.name}}</h6>
+                        <div class="list-group-img">
+
+                            <!-- <img src="./assets/media/icons/icon_1.png" alt=""> -->
+                            <img [src]="url" height="34" alt="">
+                            <img src="./assets/media/icons/icon_2.png" alt="">
+                        </div>
+                        <div class="list-group-wrapper">
+
+                            <button mat-button (click)="open(content)">Upload Image</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 text-right">
+                <button mat-raised-button color="primary" type="button" (click)="onUpload()">Upload</button>
+            </div>
+        </div>
+        <!-- </form> -->
+    </kt-portlet-body>
+</kt-portlet>
+
+<div class="kt-section">
+    <span *ngIf="closeResult" class="kt-section__sub">
+        <pre>{{closeResult}}</pre>
+    </span>
+    <div class="kt-section__content">
+        <ng-template #content let-c="close" let-d="dismiss">
+            <div class="modal-header">
+                <h4 class="modal-title">Choose Image File</h4>
+                <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p> <label>Choose Your file<input type="file" multiple name="myFile" (change)="onFileSelected($event)">
+
+
+                    </label><img [src]="url" height="120"></p>
+                <!--*ngFor='let url of urls'  -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+                <button type="button" class="btn btn-primary" (click)="savefile()">Save changes</button>
+            </div>
+        </ng-template>
+
+    </div>
+</div>

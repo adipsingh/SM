@@ -1,0 +1,93 @@
+<div class="kt-portlet"
+	[ngClass]="{ 'kt-portlet--body-progress kt-portlet--body-progress-overlay' : viewLoading }">
+	<div class="kt-portlet__head kt-portlet__head__custom">
+		<div class="kt-portlet__head-label">
+			<h3 class="kt-portlet__head-title">getTitle</h3>
+		</div>
+	</div>
+	<form class="kt-form" [formGroup]="QuestionForm">
+		<div class="kt-portlet__body">
+
+			<div class="kt-portlet__body-progress">
+				<mat-spinner [diameter]="20"></mat-spinner>
+			</div>
+
+			<kt-alert *ngIf="hasFormErrors" type="warn" [duration]="30000" [showCloseButton]="true" (close)="onAlertClose($event)">
+				Oh snap! Change a few things up and try submitting again.
+			</kt-alert>
+
+			<div class="form-group kt-form__group row">
+				<div class="col-lg-4 kt-margin-bottom-20-mobile">
+					<mat-form-field class="mat-form-field-fluid">
+						<input matInput placeholder="Enter question Name" formControlName="question" />
+						<mat-error>question Name is
+							<strong>required</strong>
+						</mat-error>
+						<mat-hint align="start">Please enter
+							<strong>question Name</strong>
+						</mat-hint>
+					</mat-form-field>
+				</div>			
+			</div>			
+		</div>
+		<div class="kt-portlet__foot kt-portlet__no-border kt-portlet__foot--fit">
+			<div class="kt-form__actions kt-form__actions--solid">
+				<div class="row text-right">
+					<div class="col-lg-12">
+						<button type="button" mat-raised-button [mat-dialog-close]="data.animal" cdkFocusInitial matTooltip="Cancel changes">
+							Cancel
+						</button>&nbsp;
+						<button type="button" mat-raised-button color="primary" (click)="onSubmit()" [disabled]="viewLoading" matTooltip="Save changes">
+							Save
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div class="kt-portlet" [ngClass]="{ 'kt-portlet--body-progress' : viewLoading, 'kt-portlet--body-progress-overlay' : loadingAfterSubmit }">
+	<div class="kt-portlet__head kt-portlet__head__custom">
+		<div class="kt-portlet__head-label">
+			<h3 class="kt-portlet__head-title">
+				{{ data.isNew ? 'Create' : 'Update'}} specification
+			</h3>
+		</div>
+	</div>
+	<!--begin::Form-->
+	<form class="kt-form" [formGroup]="specificationEditForm" autocomplete="off">
+		<div class="kt-portlet__body">
+			<div class="kt-portlet__body-progress">
+				<mat-spinner [diameter]="20"></mat-spinner>
+			</div>
+
+			<div class="kt-form__section kt-form__section--first">
+				<div class="form-group kt-form__group">
+					<mat-form-field class="mat-form-field-fluid">
+						<mat-select placeholder="Enter Specification Type" formControlName="name">
+							<mat-option value="{{sp}}" *ngFor="let sp of specificationsDictionary;">{{sp}}</mat-option>
+						</mat-select>
+						<mat-error *ngIf="isControlHasError('name','required')">
+							<strong>Specification Type is required</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+				<div class="form-group kt-form__group">
+					<mat-form-field class="mat-form-field-fluid">
+						<input matInput placeholder="Enter Value" formControlName="text" />
+						<mat-error *ngIf="isControlHasError('text','required')">
+							<strong>Value is required</strong>
+						</mat-error>
+					</mat-form-field>
+				</div>
+			</div>
+		</div>
+		<div class="kt-portlet__foot kt-portlet__foot--fit text-right">
+			<div class="kt-form__actions kt-form__actions kt-form__actions--solid">
+				<button type="button" mat-raised-button cdkFocusInitial (click)="onNoClick()" matTooltip="Cancel changes">Cancel</button>&nbsp;
+				<button type="submit" mat-raised-button color="primary" (click)="save()" [disabled]="viewLoading" matTooltip="Save changes">Save</button>
+			</div>
+		</div>
+	</form>
+	<!--end::Form-->
+</div>
